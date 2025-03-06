@@ -68,9 +68,9 @@ body, header, nav {
 
 .section1-extra {
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;      /* Ajusta el tamaño de fuente a tu preferencia */
-  margin-top: 200px;     /* Espacio entre el botón y este texto */
-  text-align: center;   /* Centra el texto, si lo deseas */
+  font-size: 16px;      
+  margin-top: 200px;
+  text-align: center;
 }
 
 /* Sección 2 */
@@ -120,34 +120,41 @@ body, header, nav {
   align-items: center;
 }
 
-.nuestroequipo-title {
+.section3-title {
   font-family: 'Bebas Neue', cursive;
   font-weight: bold;
   justify-content: center;
-  font-size: 48px; /* Ajusta el tamaño según prefieras */
-  margin-bottom: 40px; /* Opcional, para separar el título del contenido */
+  font-size: 48px;
+  margin-bottom: 40px;
   text-align: center;
 }
 
-/* Contenedor de tarjetas: alinea las tarjetas horizontalmente */
+/* Contenedor de tarjetas: aumenta el espacio entre ellas */
 .cards-container {
   display: flex;
   justify-content: center;
-  gap: 20px; /* Espacio entre tarjetas */
+  gap: 40px;
 }
 
-/* Cada tarjeta: rectángulo con borde negro */
+/* Tarjeta flip: se usa perspectiva para efecto 3D */
 .card {
-  border: 2px solid #000;
+  perspective: 1000px;
   width: 200px;
   height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.95);
+  background-color: transparent;
 }
 
-/* Contenedor interior: fondo gris, organiza el contenido verticalmente */
+/* Contenedor interno con transición para flip */
 .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 20px;
   background-color: #abbf9d;
   width: 95%;
   height: 95%;
@@ -158,16 +165,64 @@ body, header, nav {
   padding: 10px;
 }
 
-/* Placeholder para las fotos (tanto superior como inferior) */
-.photo-placeholder {
-  width: 80px;
-  height: 80px;
-  background-color: #000000;  /* Color de fondo para el placeholder */
+/* Flip: cuando se active la clase 'flipped' */
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
 }
 
-/* Centrado de textos dentro de la tarjeta */
+/* Efecto hover: leve inclinación para dar dinamismo */
+.card-inner:hover {
+  transform: rotateY(5deg);
+  transition: transform 0.3s;
+}
+
+.card.flipped .card-inner:hover {
+  transform: rotateY(180deg);
+}
+
+/* Definición de las dos caras de la tarjeta */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+}
+
+.card-front {
+  z-index: 2;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.photo-placeholder {
+  width: 140px;            /* Ancho fijo para la imagen */
+  height: 200px;           /* Altura fija, haciendo que sea rectangular */
+  background-color: #000000;  /* Color de fondo temporal */
+  
+  /* Centramos el contenedor horizontalmente y definimos márgenes */
+  margin: 50px auto 40px;   /* 20px arriba, auto a los lados y 40px abajo */
+  
+  /* Para centrar el contenido interno (la imagen) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+/* Centrado de textos dentro de la tarjeta y separarlos de la imagen */
 .card-text {
   text-align: center;
+  margin-top: 20px;  /* Empuja el nombre y rol hacia abajo */
 }
 
 /* Texto "Nombre" en Bebas Neue en negrita */
@@ -183,4 +238,25 @@ body, header, nav {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   margin: 5px 0;
+}
+
+/* Estilo para el contenido del reverso */
+.card-back-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card:not(.flipped):hover .card-inner {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card.flipped:hover .card-inner {
+  transform: rotateY(180deg) translateY(-10px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

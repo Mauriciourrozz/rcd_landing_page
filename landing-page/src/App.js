@@ -1,14 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+
+function Card({ frontContent, backContent }) {
+  const [flipped, setFlipped] = useState(false);
+
+return (
+  <div 
+    className={`card ${flipped ? 'flipped' : ''}`} 
+    onClick={() => setFlipped(!flipped)}
+  >
+    <div className="card-inner">
+      <div className="card-front">
+        {frontContent}
+      </div>
+      <div className="card-back">
+        {backContent}
+      </div>
+    </div>
+  </div>
+);
+}
 
 function App() {
   return (
     <div>
       <header className="header">
         <nav className="header-nav">
-          <a href="#section1" className="nav-link">Sección 1</a>
-          <a href="#section2" className="nav-link">Sección 2</a>
-          <a href="#section3" className="nav-link">Sección 3</a>
+          <a href="#section1" className="nav-link">Home</a>
+          <a href="#section2" className="nav-link">About</a>
+          <a href="#section3" className="nav-link">Team</a>
         </nav>
       </header>
 
@@ -20,7 +40,7 @@ function App() {
           Gestiona los residuos de tus obras dando click al siguiente boton
         </p>
         <button className="section1-button">Registrate aqui</button>
-        <p className="section1-extra">Aca voy a encajar un chamuyo sobre la app</p>
+        <p className="section1-extra">Nues</p>
       </section>
 
 {/* -------------------------------------------------------------------------------------------------------------------------------------------- */}
@@ -52,54 +72,75 @@ function App() {
 
 {/* -------------------------------------------------------------------------------------------------------------------------------------------- */}
 
-      <section id="nuestroequipo" className="nuestroequipo">
-        <h2 className="nuestroequipo-title">Sección 3</h2>
+<section id="section3" className="section3">
+        <h2 className="section3-title">Nuestro equipo</h2>
         <div className="cards-container">
           {/* Tarjeta 1 */}
-          <div className="card">
-            <div className="card-inner">
-              <div className="photo-placeholder top-photo">
-                {/* Foto superior (ruta a definir) */}
-              </div>
-              <div className="card-text">
-                <p className="card-name">Nombre</p>
-                <p className="card-role">Rol</p>
-              </div>
-              <div className="photo-placeholder bottom-photo">
-                {/* Foto inferior (ruta a definir) */}
-              </div>
-            </div>
-          </div>
+          <Card
+            frontContent={
+              <>
+                <div className="photo-placeholder top-photo">
+                  <img src="/images/IgnacioVanzo.jpg" alt="Ignacio Vanzo" />
+                </div>
+                <div className="card-text">
+                  <p className="card-name">Ignacio Vanzo</p>
+                  <p className="card-role">Project Manager & Full stack Developer</p>
+                </div>
+              </>
+            }
+            backContent={
+              <>
+                {/* Contenido del reverso de la tarjeta (por ejemplo, otra imagen o información adicional) */}
+                <div className="card-back-content">
+                  <img src="/images/Nachoqr.png" alt="Ignacio Vanzo Back" />
+                </div>
+              </>
+            }
+          />
+
           {/* Tarjeta 2 */}
-          <div className="card">
-            <div className="card-inner">
-              <div className="photo-placeholder top-photo">
-                {/* Foto superior (ruta a definir) */}
-              </div>
-              <div className="card-text">
-                <p className="card-name">Nombre</p>
-                <p className="card-role">Rol</p>
-              </div>
-              <div className="photo-placeholder bottom-photo">
-                {/* Foto inferior (ruta a definir) */}
-              </div>
-            </div>
-          </div>
+          <Card
+            frontContent={
+              <>
+                <div className="photo-placeholder top-photo">
+                  <img src="/images/MauricioUrroz.jpg" alt="Mauricio Urroz" />
+                </div>
+                <div className="card-text">
+                  <p className="card-name">Mauricio Urroz</p>
+                  <p className="card-role">Backend Developer</p>
+                </div>
+              </>
+            }
+            backContent={
+              <>
+                <div className="card-back-content">
+                  <img src="/images/Mauriqr.png" alt="Mauricio Urroz Back" />
+                </div>
+              </>
+            }
+          />
+
           {/* Tarjeta 3 */}
-          <div className="card">
-            <div className="card-inner">
-              <div className="photo-placeholder top-photo">
-                {/* Foto superior (ruta a definir) */}
-              </div>
-              <div className="card-text">
-                <p className="card-name">Nombre</p>
-                <p className="card-role">Rol</p>
-              </div>
-              <div className="photo-placeholder bottom-photo">
-                {/* Foto inferior (ruta a definir) */}
-              </div>
-            </div>
-          </div>
+          <Card
+            frontContent={
+              <>
+                <div className="photo-placeholder top-photo">
+                  <img src="/images/OwenFernandez.jpg" alt="Owen Fernandez" />
+                </div>
+                <div className="card-text">
+                  <p className="card-name">Owen Fernandez</p>
+                  <p className="card-role">Frontend Developer</p>
+                </div>
+              </>
+            }
+            backContent={
+              <>
+                <div className="card-back-content">
+                  <img src="/images/OwenFernandez-back.jpg" alt="Owen Fernandez Back" />
+                </div>
+              </>
+            }
+          />
         </div>
       </section>
     </div>
