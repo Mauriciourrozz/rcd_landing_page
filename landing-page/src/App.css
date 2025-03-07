@@ -1,19 +1,36 @@
-/* Importa las fuentes Montserrat y Bebas Neue */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-/* Resetea márgenes y padding globales */
 body, header, nav {
   margin: 0;
   padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Fondo animado en todo el container */
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a8c948, #abbf9d, #ffffff, #999999);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+/* Keyframes para animación de fondo */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Estilos para el header y navegación */
 .header {
   width: 100%;
-  background-color: #000;
+  background-color: #000000;
   padding: 20px;
   box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .header-nav {
@@ -24,10 +41,31 @@ body, header, nav {
 }
 
 .nav-link {
-  color: #fff;
+  color: #ffffff;
   margin: 0 15px;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de subrayado animado al hacer hover en el menú */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #abbf9d;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 /* Sección 1 */
@@ -36,8 +74,19 @@ body, header, nav {
   min-height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+  color: #000;
+  background: rgba(255,255,255,0.70);
+  margin: 20px;
+  border-radius: 10px;
+  animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .section1-title {
@@ -45,32 +94,33 @@ body, header, nav {
   font-size: 48px;
   font-weight: bold;
   margin-bottom: 20px;
+  color: #000000;
 }
 
 .section1-text {
-  font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   margin-bottom: 30px;
-  text-align: center;
 }
 
 .section1-button {
-  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   background-color: #a8c948;
-  color: #fff;
+  color: #ffffff;
   border: none;
   padding: 15px 30px;
   cursor: pointer;
   border-radius: 4px;
   font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.section1-button:hover {
+  transform: scale(1.05);
 }
 
 .section1-extra {
-  font-family: 'Montserrat', sans-serif;
   font-size: 16px;      
   margin-top: 200px;
-  text-align: center;
 }
 
 /* Sección 2 */
@@ -80,6 +130,9 @@ body, header, nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: rgba(255,255,255,0.70);
+  margin: 20px;
+  border-radius: 10px;
 }
 
 .section2-title {
@@ -87,6 +140,7 @@ body, header, nav {
   font-size: 48px;
   font-weight: bold;
   margin-bottom: 40px;
+  color: #000;
 }
 
 .section2-row {
@@ -95,20 +149,45 @@ body, header, nav {
   width: 100%;
   max-width: 800px;
   margin-bottom: 30px;
+  animation: slideIn 1s ease;
 }
 
-.section2-image-placeholder {
-  width: 150px;
-  height: 150px;
-  background-color: #ccc;
-  margin: 0 20px;
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 .section2-text {
-  font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   margin: 0;
   flex: 1;
+}
+
+/* Sección 2: imagen */
+.section2-image-placeholder {
+  width: 10cm;
+  height: 6cm;
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section2-image-placeholder:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.section2-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: inherit;
 }
 
 /* Sección 3 */
@@ -118,25 +197,33 @@ body, header, nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: rgba(255,255,255,0.70);
+  margin: 20px;
+  border-radius: 10px;
 }
 
 .section3-title {
   font-family: 'Bebas Neue', cursive;
   font-weight: bold;
-  justify-content: center;
   font-size: 48px;
   margin-bottom: 40px;
   text-align: center;
+  color: #000;
 }
 
-/* Contenedor de tarjetas: aumenta el espacio entre ellas */
+.linkedin-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Contenedor de tarjetas */
 .cards-container {
   display: flex;
   justify-content: center;
   gap: 40px;
 }
 
-/* Tarjeta flip: se usa perspectiva para efecto 3D */
+/* Tarjeta flip: efecto 3D */
 .card {
   perspective: 1000px;
   width: 200px;
@@ -147,17 +234,14 @@ body, header, nav {
   background-color: transparent;
 }
 
-/* Contenedor interno con transición para flip */
 .card-inner {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 95%;
   transition: transform 0.6s;
   transform-style: preserve-3d;
   border-radius: 20px;
-  background-color: #abbf9d;
-  width: 95%;
-  height: 95%;
+  background-color: #a8c948;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -165,12 +249,11 @@ body, header, nav {
   padding: 10px;
 }
 
-/* Flip: cuando se active la clase 'flipped' */
 .card.flipped .card-inner {
   transform: rotateY(180deg);
 }
 
-/* Efecto hover: leve inclinación para dar dinamismo */
+/* Efecto hover: leve inclinación para dinamismo */
 .card-inner:hover {
   transform: rotateY(5deg);
   transition: transform 0.3s;
@@ -180,7 +263,7 @@ body, header, nav {
   transform: rotateY(180deg);
 }
 
-/* Definición de las dos caras de la tarjeta */
+/* Definición de las caras de la tarjeta */
 .card-front,
 .card-back {
   position: absolute;
@@ -190,26 +273,21 @@ body, header, nav {
   border-radius: 20px;
 }
 
-.card-front {
-  z-index: 2;
-}
-
 .card-back {
   transform: rotateY(180deg);
 }
 
+/* Estilo para la imagen de las tarjetas */
 .photo-placeholder {
-  width: 140px;            /* Ancho fijo para la imagen */
-  height: 200px;           /* Altura fija, haciendo que sea rectangular */
-  background-color: #000000;  /* Color de fondo temporal */
-  
-  /* Centramos el contenedor horizontalmente y definimos márgenes */
-  margin: 50px auto 40px;   /* 20px arriba, auto a los lados y 40px abajo */
-  
-  /* Para centrar el contenido interno (la imagen) */
+  width: 140px;
+  height: 200px;
+  background-color: #000000;
+  margin: 50px auto 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .photo-placeholder img {
@@ -219,13 +297,12 @@ body, header, nav {
   border-radius: inherit;
 }
 
-/* Centrado de textos dentro de la tarjeta y separarlos de la imagen */
+/* Texto dentro de la tarjeta */
 .card-text {
   text-align: center;
-  margin-top: 20px;  /* Empuja el nombre y rol hacia abajo */
+  margin-top: 20px;
 }
 
-/* Texto "Nombre" en Bebas Neue en negrita */
 .card-name {
   font-family: 'Bebas Neue', cursive;
   font-size: 24px;
@@ -233,30 +310,45 @@ body, header, nav {
   margin: 5px 0;
 }
 
-/* Texto "Rol" en Montserrat normal */
 .card-role {
-  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   margin: 5px 0;
 }
 
-/* Estilo para el contenido del reverso */
+/* Contenido del reverso de la tarjeta */
 .card-back-content {
   width: 100%;
   height: 100%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.card:not(.flipped):hover .card-inner {
-  transform: translateY(-10px);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.card-back-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-.card.flipped:hover .card-inner {
-  transform: rotateY(180deg) translateY(-10px);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Enlace del logo en la tarjeta */
+.card-logo-link {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+}
+
+/* Logo con efecto hover */
+.card-logo {
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.card-logo:hover {
+  transform: scale(1.1);
 }
