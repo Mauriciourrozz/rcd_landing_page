@@ -21,10 +21,26 @@ function Card({ frontContent, backContent }) {
   );
 }
 
+// Componente para formas animadas en el fondo
+function FloatingShapes() {
+  return (
+    <div className="floating-shapes">
+      <div className="shape shape1"></div>
+      <div className="shape shape2"></div>
+      <div className="shape shape3"></div>
+      {/* Forma adicional */}
+      <div className="shape shape4"></div>
+    </div>
+  );
+}
+
 function App() {
   return (
     <div className="container">
+      <FloatingShapes />
       <header className="header">
+      <div className="header-logo-container">
+        <img src="images/loguito.png" alt="Logo RCD Reciclaje" className="header-logo"/></div>
         <nav className="header-nav">
           <a href="#section1" className="nav-link">Home</a>
           <a href="#section2" className="nav-link">About</a>
@@ -34,20 +50,21 @@ function App() {
 
       {/* -------------------------------------------------------------------------------------------------------------------------------------------- */}
       <section id="section1" className="section1">
-        <h2 className="section1-title">Sistema de gestión RCD Reciclaje</h2>
+      <img src="images/logo.png" alt="Logo RCD Reciclaje" className="section1-logo"/>
+        <h2 className="section1-title">'RCD Reciclaje' Management system</h2>
+        <p className="section1-extra">The idea behind this app is a management system for the company RCD Reciclaje, thus managing to automate all its processes regarding environmental care and the control of material waste from construction works. </p>
         <p className="section1-text">
-          Gestiona los residuos de tus obras dando click al siguiente botón
+        Manage the waste from your works by clicking the following button
         </p>
-        <button className="section1-button">Regístrate aquí</button>
-        <p className="section1-extra">Aquí va un buen chamuyo de la app</p>
+        <button className="section1-button">Register here</button>
       </section>
 
       {/* -------------------------------------------------------------------------------------------------------------------------------------------- */}
-      <section id="section2" className="section2">
-        <h2 className="section2-title">Simple y fácil de usar</h2>
 
+      <section id="section2" className="section2">
+        <h2 className="section2-title">About the app</h2>
         <div className="section2-row row1">
-          <p className="section2-text left-text">Regístrate e inicia sesión</p>
+          <p className="section2-text left-text">Register and log in</p>
           <div className="section2-image-placeholder">
             <img src="/images/Iniciodesesion.PNG" alt="Regístrate e inicia sesión" />
           </div>
@@ -57,11 +74,11 @@ function App() {
           <div className="section2-image-placeholder">
             <img src="/images/registroobra1.PNG" alt="Completa el formulario" />
           </div>
-          <p className="section2-text right-text">Completa un formulario y registra tus obras</p>
+          <p className="section2-text right-text">Complete a form and register your works</p>
         </div>
 
         <div className="section2-row row3">
-          <p className="section2-text left-text">Solicita el retiro de tus escombros</p>
+          <p className="section2-text left-text">Request the removal of your debris</p>
           <div className="section2-image-placeholder">
             <img src="/images/coordinacion.PNG" alt="Solicita el retiro de escombros" />
           </div>
@@ -70,8 +87,8 @@ function App() {
 
       {/* -------------------------------------------------------------------------------------------------------------------------------------------- */}
       <section id="section3" className="section3">
-        <h2 className="section3-title">Nuestro equipo</h2>
-        <p className="linkedin-text">Haz click en las imágenes para acceder a nuestro perfil de LinkedIn</p>
+        <h2 className="section3-title">Our team</h2>
+        <p className="linkedin-text">Click on the images to access our LinkedIn profile</p>
         <div className="cards-container">
           {/* Tarjeta 1 */}
           <Card
@@ -139,7 +156,7 @@ function App() {
             backContent={
               <>
                 <div className="card-back-content">
-                  <img src="/images/OwenFernandez-back.jpg" alt="Owen Fernandez Back" />
+                  <img src="/images/Owenqr.png" alt="Owen Fernandez Back" />
                 </div>
                 <a href="https://github.com/OwenFernandez9" target="_blank" rel="noopener noreferrer" className="card-logo-link">
                   <img src="/images/github.png" alt="Logo" className="card-logo" />
@@ -149,6 +166,9 @@ function App() {
           />
         </div>
       </section>
+        <footer className="footer">
+          <p>♻️ Made by Ignacio Vanzo, Mauricio Urroz & Owen Fernandez ♻️</p>
+        </footer>
     </div>
   );
 }
