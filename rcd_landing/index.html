@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="images/loguito.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Sistema de gestión para RCD Reciclaje"
+    />
+    <link rel="manifest" href="manifes.json" />
+    <title>RCD Management</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="floating-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+        <div class="shape shape4"></div>
+      </div>
+
+      <!-- Header -->
+      <header class="header">
+        <div class="header-logo-container">
+          <img src="images/loguito.png" alt="Logo RCD Reciclaje" class="header-logo" />
+        </div>
+        <nav class="header-nav">
+          <a href="#section1" class="nav-link">Home</a>
+          <a href="#section2" class="nav-link">About</a>
+          <a href="#section3" class="nav-link">Team</a>
+        </nav>
+      </header>
+
+      <!-- Sección 1 -->
+      <section id="section1" class="section1">
+        <img src="images/logo.png" alt="Logo RCD Reciclaje" class="section1-logo" />
+        <h2 class="section1-title">'RCD Reciclaje' Management system</h2>
+        <p class="section1-extra">
+          The idea behind this app is a management system for the company RCD Reciclaje, thus managing to automate all its processes regarding environmental care and the control of material waste from construction works.
+        </p>
+        <p class="section1-text">
+          Manage the waste from your works by clicking the following button
+        </p>
+        <button class="section1-button">Register here</button>
+      </section>
+
+      <!-- Sección 2 -->
+      <section id="section2" class="section2">
+        <h2 class="section2-title">About the app</h2>
+        <div class="section2-row row1">
+          <p class="section2-text left-text">Register and log in</p>
+          <div class="section2-image-placeholder">
+            <img src="images/Iniciodesesion.PNG" alt="Regístrate e inicia sesión" />
+          </div>
+        </div>
+
+        <div class="section2-row row2">
+          <div class="section2-image-placeholder">
+            <img src="images/registroobra1.PNG" alt="Completa el formulario" />
+          </div>
+          <p class="section2-text right-text">Complete a form and register your works</p>
+        </div>
+
+        <div class="section2-row row3">
+          <p class="section2-text left-text">Request the removal of your debris</p>
+          <div class="section2-image-placeholder">
+            <img src="images/coordinacion.PNG" alt="Solicita el retiro de escombros" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección 3: Equipo -->
+      <section id="section3" class="section3">
+        <h2 class="section3-title">Our team</h2>
+        <p class="linkedin-text">Click on the images to access our LinkedIn profile</p>
+        <div class="cards-container">
+
+          <!-- Tarjeta 1 -->
+          <div class="card">
+            <!-- Input oculto para el estado flip -->
+            <input type="checkbox" id="card1" class="flip-checkbox" />
+            <label for="card1" class="card-inner">
+              <div class="card-front">
+                <div class="photo-placeholder top-photo">
+                  <img src="images/IgnacioVanzo.jpg" alt="Ignacio Vanzo" />
+                </div>
+                <div class="card-text">
+                  <p class="card-name">Ignacio Vanzo</p>
+                  <p class="card-role">Project Manager & Full stack Developer</p>
+                </div>
+              </div>
+              <div class="card-back">
+                <div class="card-back-content">
+                  <img src="images/Nachoqr.png" alt="Ignacio Vanzo Back" />
+                </div>
+                <a href="https://github.com/nachovanzo7" target="_blank" rel="noopener noreferrer" class="card-logo-link">
+                  <img src="images/github.png" alt="Logo" class="card-logo" />
+                </a>
+              </div>
+            </label>
+          </div>
+
+          <!-- Tarjeta 2 -->
+          <div class="card">
+            <input type="checkbox" id="card2" class="flip-checkbox" />
+            <label for="card2" class="card-inner">
+              <div class="card-front">
+                <div class="photo-placeholder top-photo">
+                  <img src="images/MauricioUrroz.jpg" alt="Mauricio Urroz" />
+                </div>
+                <div class="card-text">
+                  <p class="card-name">Mauricio Urroz</p>
+                  <p class="card-role">Backend Developer</p>
+                </div>
+              </div>
+              <div class="card-back">
+                <div class="card-back-content">
+                  <img src="images/Mauriqr.png" alt="Mauricio Urroz Back" />
+                </div>
+                <a href="https://github.com/Mauriciourrozz" target="_blank" rel="noopener noreferrer" class="card-logo-link">
+                  <img src="images/github.png" alt="Logo" class="card-logo" />
+                </a>
+              </div>
+            </label>
+          </div>
+
+          <!-- Tarjeta 3 -->
+          <div class="card">
+            <input type="checkbox" id="card3" class="flip-checkbox" />
+            <label for="card3" class="card-inner">
+              <div class="card-front">
+                <div class="photo-placeholder top-photo">
+                  <img src="images/OwenFernandez.jpg" alt="Owen Fernandez" />
+                </div>
+                <div class="card-text">
+                  <p class="card-name">Owen Fernandez</p>
+                  <p class="card-role">Frontend Developer</p>
+                </div>
+              </div>
+              <div class="card-back">
+                <div class="card-back-content">
+                  <img src="images/Owenqr.png" alt="Owen Fernandez Back" />
+                </div>
+                <a href="https://github.com/OwenFernandez9" target="_blank" rel="noopener noreferrer" class="card-logo-link">
+                  <img src="images/github.png" alt="Logo" class="card-logo" />
+                </a>
+              </div>
+            </label>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>♻️ Made by Ignacio Vanzo, Mauricio Urroz & Owen Fernandez ♻️</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -20,7 +20,6 @@ body, header, nav {
   animation: gradientAnimation 15s ease infinite;
 }
 
-/* Keyframes para animación de fondo */
 @keyframes gradientAnimation {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -37,8 +36,8 @@ body, header, nav {
   top: 0;
   z-index: 10;
   display: flex;
-  align-items: center; /* Centra verticalmente el contenido */
-  justify-content: space-between; /* Logo a la izquierda y nav a la derecha */
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header-logo {
@@ -49,7 +48,7 @@ body, header, nav {
 .header-nav {
   display: flex;
   gap: 20px;
-  align-items: center; /* Centra verticalmente los links */
+  align-items: center;
 }
 
 .nav-link {
@@ -61,7 +60,6 @@ body, header, nav {
   overflow: hidden;
 }
 
-/* Efecto de subrayado animado al hacer hover en el menú */
 .nav-link::after {
   content: "";
   position: absolute;
@@ -80,7 +78,6 @@ body, header, nav {
   transform-origin: bottom left;
 }
 
-/* Efecto sutil de oscilación al hover de los links */
 .nav-link:hover {
   animation: linkPulse 0.5s ease;
 }
@@ -91,7 +88,7 @@ body, header, nav {
   100% { transform: translateY(0); }
 }
 
-/* Efecto 3D para todos los títulos */
+/* Efecto 3D para los títulos */
 .section1-title,
 .section2-title,
 .section3-title {
@@ -104,7 +101,6 @@ body, header, nav {
   transition: transform 0.3s ease;
 }
 
-/* Efecto sutil en hover para resaltar el 3D */
 .section1-title:hover,
 .section2-title:hover,
 .section3-title:hover {
@@ -133,7 +129,7 @@ body, header, nav {
 }
 
 .section1-logo {
-  width: 500px; /* Imagen principal en la sección 1 */
+  width: 500px;
   height: auto;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -179,7 +175,6 @@ body, header, nav {
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-/* Ripple effect */
 .section1-button::after {
   content: "";
   position: absolute;
@@ -254,7 +249,6 @@ body, header, nav {
   border-radius: 3px;
 }
 
-/* Sección 2: imagen */
 .section2-image-placeholder {
   width: 12cm;
   height: 6cm;
@@ -307,7 +301,6 @@ body, header, nav {
   margin-bottom: 20px;
 }
 
-/* Contenedor de tarjetas */
 .cards-container {
   display: flex;
   justify-content: center;
@@ -323,6 +316,17 @@ body, header, nav {
   border-radius: 20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.95);
   background-color: transparent;
+  position: relative;
+}
+
+/* Ocultamos el checkbox */
+.flip-checkbox {
+  display: none;
+}
+
+/* La tarjeta se gira cuando el checkbox está seleccionado */
+.flip-checkbox:checked + .card-inner {
+  transform: rotateY(180deg);
 }
 
 .card-inner {
@@ -340,21 +344,16 @@ body, header, nav {
   padding: 10px;
 }
 
-.card.flipped .card-inner {
-  transform: rotateY(180deg);
-}
-
-/* Efecto hover: leve inclinación para dinamismo */
+/* Efecto hover para dar inclinación (se reduce en la parte flipped para evitar conflictos) */
 .card-inner:hover {
   transform: rotateY(5deg);
   transition: transform 0.3s;
 }
 
-.card.flipped .card-inner:hover {
+.flip-checkbox:checked + .card-inner:hover {
   transform: rotateY(180deg);
 }
 
-/* Definición de las caras de la tarjeta */
 .card-front,
 .card-back {
   position: absolute;
@@ -388,7 +387,6 @@ body, header, nav {
   border-radius: inherit;
 }
 
-/* Texto dentro de la tarjeta */
 .card-text {
   text-align: center;
   margin-top: 20px;
@@ -406,7 +404,6 @@ body, header, nav {
   margin: 5px 0;
 }
 
-/* Contenido del reverso de la tarjeta */
 .card-back-content {
   width: 100%;
   height: 100%;
@@ -422,7 +419,6 @@ body, header, nav {
   object-fit: contain;
 }
 
-/* Enlace del logo en la tarjeta */
 .card-logo-link {
   position: absolute;
   bottom: 30px;
@@ -432,7 +428,6 @@ body, header, nav {
   z-index: 3;
 }
 
-/* Logo con efecto hover */
 .card-logo {
   width: 50px;
   height: auto;
@@ -444,9 +439,7 @@ body, header, nav {
   transform: scale(1.1);
 }
 
-/* ---------------------------- */
-/* Nuevos estilos: Formas flotantes */
-/* ---------------------------- */
+/* Formas flotantes */
 .floating-shapes {
   position: absolute;
   top: 0;
@@ -489,7 +482,6 @@ body, header, nav {
   left: 40%;
 }
 
-/* Nueva forma: shape4 */
 .shape.shape4 {
   width: 120px;
   height: 120px;
@@ -514,24 +506,18 @@ body, header, nav {
   font-size: 16px;
 }
 
-/* ========================= */
 /* Media Queries Responsivos */
-/* ========================= */
 @media (max-width: 768px) {
-  /* Header: reducir padding y gap */
   .header {
     padding: 8px 10px;
   }
   .header-nav {
     gap: 10px;
   }
-
-  /* Sección 1: ajustar tamaño del logo principal si es muy grande */
   .section1-logo {
     width: 90%;
     max-width: 300px;
   }
-  
   .section1-title {
     font-size: 36px;
   }
@@ -542,8 +528,6 @@ body, header, nav {
     padding: 12px 24px;
     font-size: 16px;
   }
-  
-  /* Sección 2 */
   .section2 {
     padding: 30px;
   }
@@ -558,16 +542,12 @@ body, header, nav {
     max-width: 400px;
     height: auto;
   }
-  
-  /* Sección 3 */
   .section3 {
     padding: 30px;
   }
   .section3-title {
     font-size: 36px;
   }
-  
-  /* Tarjetas: solo apilar verticalmente manteniendo su ancho original */
   .cards-container {
     flex-direction: column;
     gap: 20px;
@@ -575,17 +555,14 @@ body, header, nav {
   }
 }
 
-/* Opcional: Ajustes para pantallas muy pequeñas */
 @media (max-width: 480px) {
   .nav-link {
     font-size: 14px;
     margin: 0 8px;
   }
-  
   .section1-title {
     font-size: 28px;
   }
-  
   .section2-title,
   .section3-title {
     font-size: 28px;
